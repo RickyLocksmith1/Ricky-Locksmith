@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricky Locksmith | Locksmith Services in Lake Worth, Florida </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0c10;
+      --bg-card: rgba(22, 27, 34, 0.75);
+      --accent-gold: #d4af37;
+      --accent-gold-hover: #f3e5ab;
+      --text-main: #f0f6fc;
+      --text-muted: #8b949e;
+      --border-color: rgba(212, 175, 55, 0.2);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* --- Header & Navigation --- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 12, 16, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand span {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--accent-gold);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      color: var(--accent-gold);
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 5%;
+      background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+      gap: 3rem;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 650px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--accent-gold);
+      border-radius: 20px;
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #b89628 100%);
+      color: #000;
+      font-weight: 700;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+      background: var(--accent-gold-hover);
+    }
+
+    .hero-image {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--glass-shadow);
+    }
+
+    /* --- Section General --- */
+    section {
+      padding: 5rem 5%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.4rem;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* --- About Us --- */
+    .about-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 3rem;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--glass-shadow);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about-container p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* --- Services Section --- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-gold);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .service-card-body {
+      padding: 1.5rem;
+    }
+
+    .service-card-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent-gold);
+    }
+
+    .service-card-body p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .center-btn {
+      text-align: center;
+    }
+
+    /* --- Customer Reviews --- */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .stars {
+      color: #ffc107;
+      margin-bottom: 1rem;
+    }
+
+    .review-card p {
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .review-author {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* --- FAQs Section --- */
+    .faq-list {
+      max-width: 850px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .faq-item h3 {
+      color: var(--accent-gold);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background: #050608;
+      border-top: 1px solid var(--border-color);
+      padding: 4rem 5% 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+    }
+
+    .footer-col h4 {
+      color: var(--accent-gold);
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-col ul a {
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--text-main);
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .copyright {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* --- Responsive Breakpoints --- */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 2rem;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="brand">
+      <img src="https://rickylocksmith.com/wp-content/uploads/2026/01/Ricky-Locksmith-Logo-1.avif" alt="Ricky Locksmith Logo">
+      <span>Ricky Locksmith</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="https://rickylocksmith.com/about-us/" target="_blank">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fas fa-shield-alt"></i> Available 24/7 Service</span>
+      <h1>24/7 Professional Locksmith Services in Lake Worth, FL</h1>
+      <p>Ricky Locksmith provides dependable residential, commercial, and automotive locksmith solutions across Lake Worth, FL, and nearby areas. From emergency lockouts and car key replacement to lock repair, rekeying, and key fob programming, our mobile technicians arrive prepared to restore your security quickly and efficiently.</p>
+      <a href="https://rickylocksmith.com/" class="cta-btn"></i> Explore Ricky Locksmith</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://s.yimg.com/ny/api/res/1.2/sRJ7rIruSg4kLYCU6rE.Kg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTU0MDtjZj13ZWJw/https://www.have-clothes-will-travel.com/wp-content/uploads/2026/01/shutterstock_2009312441.jpg" alt="Locksmith Precision Work">
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about">
+    <div class="section-title">
+      <h2>About Ricky Locksmith</h2>
+      <p>Locally owned, family-focused, and tech-driven security professionals.</p>
+    </div>
+    <div class="about-container">
+      <p>At Ricky Locksmith, we provide fast, dependable, and professional locksmith services across Lake Worth, Greenacres, Palm Beach County, and neighboring South Florida communities. Our locally owned, family-focused team combines years of hands-on experience with the latest locksmith tools and security technology to address every residential, commercial, and automotive need.</p>
+      <p>Whether it is an emergency lockout, advanced key fob programming, or high-security lock installation, our locksmith technicians deliver mobile, on-site solutions with precision and care, ensuring your property, vehicle, or business remains secure while minimizing stress and downtime.</p>
+      <div class="center-btn">
+        <a href="https://rickylocksmith.com/about-us/" target="_blank" class="cta-btn">Learn More About Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="section-title">
+      <h2>Our Featured Services</h2>
+      <p>High-end solutions tailored for residential, commercial, and auto needs.</p>
+    </div>
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <img src="https://avatars.mds.yandex.net/get-altay/5482016/2a0000017dc47ab8a96d6db5355f741f730b/XXL_height" alt="Key Duplication">
+        <div class="service-card-body">
+          <h3>Key Duplication</h3>
+          <p>Precision duplication for household, office, and commercial keys made instantly on-site.</p>
+        </div>
+      </div>
+      <!-- Service 2 -->
+      <div class="service-card">
+        <img src="https://i.pinimg.com/originals/79/5b/52/795b5206e639be6f3309dc0853399c74.jpg" alt="Car Key Development">
+        <div class="service-card-body">
+          <h3>Car Key Development</h3>
+          <p>Cutting and crafting replacement car keys for modern and luxury vehicles.</p>
+        </div>
+      </div>
+      <!-- Service 3 -->
+      <div class="service-card">
+        <img src="https://i.pinimg.com/originals/30/41/64/3041646606c62382e20f72d6439598de.jpg" alt="Key Fob Programming">
+        <div class="service-card-body">
+          <h3>Key Fob Programming</h3>
+          <p>Advanced digital transponder key and smart key fob programming for all makes.</p>
+        </div>
+      </div>
+      <!-- Service 4 -->
+      <div class="service-card">
+        <img src="https://s.yimg.com/ny/api/res/1.2/sRJ7rIruSg4kLYCU6rE.Kg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTU0MDtjZj13ZWJw/https://www.have-clothes-will-travel.com/wp-content/uploads/2026/01/shutterstock_2009312441.jpg" alt="Lock Repair">
+        <div class="service-card-body">
+          <h3>Lock Repair</h3>
+          <p>Expert lock rekeying, repair, and high-security system installations.</p>
+        </div>
+      </div>
+    </div>
+    <div class="center-btn">
+      <a href="https://rickylocksmith.com/services/" class="cta-btn" target="_blank">Explore All Services</a>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section>
+    <div class="section-title">
+      <h2>Customer Reviews</h2>
+      <p>Read what our clients in Palm Beach County have to say about our service.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Ricky Locksmith arrived within 20 minutes when I got locked out of my vehicle late at night. Fast, professional, and very fair pricing!"</p>
+        <div class="review-author">- Marcus S., Lake Worth</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Programmed a new key fob for my car in under 15 minutes. Dealership quality at a fraction of the cost."</p>
+        <div class="review-author">- Elena R., Greenacres</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Top-tier security upgrade for our commercial office! Clean, fast, and extremely trustworthy technicians."</p>
+        <div class="review-author">- David L., Palm Beach</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section>
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+      <p>Got questions? We've got answers.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>How fast can a mobile locksmith arrive in an emergency?</h3>
+        <p>Our mobile units operate 24/7 across Lake Worth and surrounding areas, aiming for response times within 20 to 30 minutes depending on your location.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can you program key fobs for modern cars on-site?</h3>
+        <p>Yes, our mobile locksmith vans are equipped with advanced key programming diagnostic tools for almost all major vehicle makes and models.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Are your services available on weekends and holidays?</h3>
+        <p>Absolutley. We operate 24 hours a day, 7 days a week, 365 days a year to keep you safe and secure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="contact">
+    <div class="footer-col">
+      <h4>Ricky Locksmith</h4>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Ricky Locksmith provides fast, reliable, and professional locksmith services you can trust. Available 24/7 for emergency, residential, and automotive locksmith solutions.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="https://rickylocksmith.com/about-us/" target="_blank">About Us</a></li>
+        <li><a href="https://rickylocksmith.com/services/" target="_blank">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col contact-info">
+      <h4>Contact Information</h4>
+      <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gold);"></i> 6131 Bangalow Dr Lake Worth, Florida, 33463 USA</p>
+      <p><i class="fas fa-phone-alt" style="color: var(--accent-gold);"></i> (716) 994-6377</p>
+      <p><i class="fas fa-envelope" style="color: var(--accent-gold);"></i> service@rickylocksmith.com</p>
+      <p><i class="fas fa-clock" style="color: var(--accent-gold);"></i> Working Hours: 24/7</p>
+    </div>
+    <div class="copyright">
+      &copy; 2026 The Ranking Geeks. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
